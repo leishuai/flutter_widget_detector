@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'dart:math' show min, max;
 
 
-//@author: leishuai.ls
+//@author: leishuai@sina.com
 ///Used for display testing detector info
 class WidgetDetector extends StatefulWidget {
   final Widget child;
