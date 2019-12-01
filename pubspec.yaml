@@ -2,7 +2,7 @@ name: flutter_widget_detector
 description: A new Flutter package.
 version: 0.0.1
 author: leishuai
-homepage: https://code.byted.org/ez/flutter_widget_detector
+homepage: https://github.com/leishuai/flutter_widget_detector
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
