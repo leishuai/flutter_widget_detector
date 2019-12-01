@@ -1,7 +1,7 @@
 name: flutter_widget_detector
-description: A new Flutter package.
+description: A flutter tool widget which can display widgets file location and other critical infos.
 version: 0.1.0
-author: leishuai <leishuai@sina.com>
+author: leishuai <leishuai1@gmail.com>
 homepage: https://github.com/leishuai/flutter_widget_detector
 
 environment:

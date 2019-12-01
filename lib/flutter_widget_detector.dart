@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'dart:math' show min, max;
 
 
-//@author: leishuai@sina.com
+//@author: leishuai
 ///Used for display testing detector info
 class WidgetDetector extends StatefulWidget {
   final Widget child;
@@ -345,7 +345,6 @@ class _RenderWidgetDetectorOverlay extends RenderBox {
 
 ///
 class _RenderObjectSelection with WidgetInspectorService {
-  static const String _kGroupName = "testing_group";
   RenderObject renderObject;
   Element element;
 
