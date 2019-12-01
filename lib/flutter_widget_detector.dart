@@ -73,7 +73,7 @@ class WidgetDetectorState extends State<WidgetDetector> {
 
   void _hitTest(List<_RenderObjectSelection> selections, Offset position, RenderBox object) {
     //get hitTest candidates from RenderBox/RenderSliver hit test methods
-    HitTestResult testResult = HitTestResult();
+    HitTestResult testResult = BoxHitTestResult();
     //flaw: if renderObject doesn't implement hitTest or add itself to result, then we can't obtain it. Fix later!
     object.hitTest(testResult, position: position);
 
