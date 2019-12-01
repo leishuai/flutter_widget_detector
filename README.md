@@ -26,7 +26,7 @@ If your flutter sdk is later than 1.7.8(included), please use version above 0.1.
 
 3. After you run the app, you can see a button with text "Detect Off" on the topmost of the screen. When it's off, the app can recognize the gestures as usual. When it's on, Widget Detector intercepts the gestures and only responds to tap where it will display its infos nearby.
 
-![](http://chuantu.xyz/t6/703/1575197303x3703728804.png)
+![](http://chuantu.xyz/t6/703/1575197856x3661913030.png)
 
 ## How it works
 
