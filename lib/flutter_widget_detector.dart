@@ -227,6 +227,7 @@ class _RenderWidgetDetectorOverlay extends RenderBox {
   static const Color _kHighlightedBorderColor = Color.fromARGB(128, 64, 64, 128);
   static const Color _kTextColor = Color.fromARGB(255, 255, 255, 255);
   static const Color _kTextBgColor = Color.fromARGB(200, 160, 160, 160);
+  static const Color _kInfoTextColor = Color.fromARGB(255, 255, 255, 224);
 
   _RenderWidgetDetectorOverlay({this.selections, this.pointerPosition});
 
@@ -297,6 +298,7 @@ class _RenderWidgetDetectorOverlay extends RenderBox {
     }
   }
 
+  //selections is RenderBoxes
   void _paintText(Canvas canvas, Rect boundsRect, List<_RenderObjectSelection> selections) {
     final Paint textBgPaint = Paint()
       ..style = PaintingStyle.fill
@@ -306,6 +308,12 @@ class _RenderWidgetDetectorOverlay extends RenderBox {
       ..textDirection = TextDirection.ltr;
 
     List<TextSpan> textSpans = [];
+    //size text
+    RenderBox firstRenderObject = selections.first.renderObject;
+    String sizeText = "${firstRenderObject.size.width} * ${firstRenderObject.size.width}";
+    textSpans.add(TextSpan(text: sizeText,
+        style: TextStyle(color: _kInfoTextColor, fontWeight: FontWeight.bold, decorationStyle: TextDecorationStyle.dashed)));
+
     for (_RenderObjectSelection selection in selections) {
       if (textSpans.length > 0) textSpans.add(TextSpan(text: "\n"));
       textSpans.add(TextSpan(text: selection.widgetTypeString, style: TextStyle(fontWeight: FontWeight.bold)));

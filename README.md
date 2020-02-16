@@ -10,7 +10,7 @@ If your flutter sdk is later than 1.7.8(included), please use version above 0.1.
 
 1. Edit your pubspec.yml file of your flutter project. And add code below in <b>dev_dependencies:</b>, because this only works in <b>Debug</b> mode.
 ```
-    flutter_widget_detector: 0.1.0
+    flutter_widget_detector: 0.1.1
 ```
 
 2. Place your Widget Detector as the parent of any widget to be detected, which is normally your app widget in the runApp() method, and wrap it with assert in order to exclude it from production build. For example:

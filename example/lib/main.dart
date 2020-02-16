@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_detector/flutter_widget_detector.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  Widget app = MyApp();
+  assert((){
+    app = WidgetDetector(
+      child: app,
+      isEnabled: true,
+    );
+    return true;
+  }());
+  runApp(app);
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
