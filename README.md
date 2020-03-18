@@ -1,6 +1,6 @@
 # flutter_widget_detector
 
-A tool widget that can display file location where widgets are created and some info of widget type, widget key and widget size. No need to connect observatory or any other tools. Hopes it can help you locate the code quickly and solve UI problems.
+A tool widget that can display file location where widgets are created and some info of widget type, e.g. widget key, size and position. No need to connect observatory or any other tools. Hopes it can help you locate the code quickly and solve UI problems.
 
 ## Version
 
@@ -10,7 +10,7 @@ If your flutter sdk is later than 1.7.8(included), please use version above 0.1.
 
 1. Edit your pubspec.yml file of your flutter project. And add code below in <b>dev_dependencies:</b>, because this only works in <b>Debug</b> mode.
 ```
-    flutter_widget_detector: 0.1.1
+    flutter_widget_detector: 0.1.2
 ```
 
 2. Place your Widget Detector as the parent of any widget to be detected, which is normally your app widget in the runApp() method, and wrap it with assert in order to exclude it from production build. For example:

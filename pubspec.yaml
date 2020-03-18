@@ -1,7 +1,7 @@
 name: flutter_widget_detector
-description: A flutter tool widget which can display widgets file location and other critical infos.
-version: 0.1.1
-author: leishuai <leishuai1@gmail.com>
+description: A flutter tool widget which can display widgets file location and other useful infos.
+version: 0.1.2
+author: shine.lei <leishuai1@gmail.com>
 homepage: https://github.com/leishuai/flutter_widget_detector
 
 environment:

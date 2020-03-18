@@ -2,11 +2,12 @@ library flutter_widget_detector;
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/foundation.dart';
 import 'dart:convert';
 import 'dart:math' show min, max;
 
 
-//@author: leishuai
+//@author: shine.lei
 ///Used for display testing detector info
 class WidgetDetector extends StatefulWidget {
   final Widget child;
@@ -90,7 +91,7 @@ class WidgetDetectorState extends State<WidgetDetector> {
       dynamic nextTestEntry = (i + 1) < hitTestEntries.length ? hitTestEntries[i+1] : null;
       //we need traverse up the elements tree until we meet element of render object of nextTestEntry
       ele.visitAncestorElements((Element ancestor){
-        if (nextTestEntry == null || ancestor.runtimeType == nextTestEntry.target.debugCreator.element.runtimeType)
+        if (nextTestEntry == null || ancestor == nextTestEntry.target.debugCreator.element)
           return false;
 
         if (_checkElement(ancestor)) {
@@ -234,8 +235,8 @@ class _RenderWidgetDetectorOverlay extends RenderBox {
   @override
   bool get sizedByParent => true;
 
-//  @override
-//  bool get alwaysNeedsCompositing => true;
+  @override
+  bool get alwaysNeedsCompositing => true;
 
   @override
   void performResize() {
@@ -308,12 +309,17 @@ class _RenderWidgetDetectorOverlay extends RenderBox {
       ..textDirection = TextDirection.ltr;
 
     List<TextSpan> textSpans = [];
-    //size text
-    RenderBox firstRenderObject = selections.first.renderObject;
-    String sizeText = "${firstRenderObject.size.width} * ${firstRenderObject.size.width}";
+    //size info to display
+    final RenderBox firstRenderObject = selections.first.renderObject;
+    String sizeText = "${firstRenderObject.size.width} * ${firstRenderObject.size.height}";
+    if (boundsRect.size != _windowSize) {
+      sizeText += "\ninset LTRB: (${boundsRect.left}, ${boundsRect.top},"
+          + " ${_windowSize.width - boundsRect.right}, ${_windowSize.height - boundsRect.bottom})";
+    }
     textSpans.add(TextSpan(text: sizeText,
         style: TextStyle(color: _kInfoTextColor, fontWeight: FontWeight.bold, decorationStyle: TextDecorationStyle.dashed)));
 
+    //widget info to display
     for (_RenderObjectSelection selection in selections) {
       if (textSpans.length > 0) textSpans.add(TextSpan(text: "\n"));
       textSpans.add(TextSpan(text: selection.widgetTypeString, style: TextStyle(fontWeight: FontWeight.bold)));
