@@ -9,3 +9,7 @@
 ## [0.1.1] - Feb. 16th, 2020
 
 * Add width * height info display.
+
+## [0.1.2] - Mar. 18th, 2020
+
+* Optimize commit.
