@@ -1,6 +1,6 @@
 # flutter_widget_detector
 
-A tool widget that can display file location where widgets are created and some info of widget type, e.g. widget key, size and position. No need to connect observatory or any other tools. Hopes it can help you locate the code quickly and solve UI problems.
+A tool widget that can display file location where widgets are created and some info of widget type, e.g. widget key, size and position at runtime. No need to connect observatory or any other tools. Hopes it can help you locate the code quickly and solve UI problems.
 
 ## Version
 
@@ -32,7 +32,7 @@ If your flutter sdk is later than 1.7.8(included), please use version above 0.1.
 
 For current version, it uses the hit test method to get a list of render objects from HitTestResult of responding chain. By traversing the render object path from innerside to outside and also checking the file location of where the widget are constructed(thru widget_inspector in flutter framework), it get the render object you probably want to detect, paint the area and border with colors, and draw infos text.
 
-It filters out the widgets created by flutter framework to let you focus on the widget you project creates. 
+It filters away the widgets created by flutter framework to let you focus on the widget you project creates. 
 
-And there is a flaw also, Row/Column or custom widgets that it doesn't override hit test method nor add itself to hit test path result can't be outlined currently. This will be fixed in the future update by traversing the element tree instead of using hit test methods.
+And for your information, Row/Column or custom widgets that it doesn't override hit test method nor add itself to hit test path result can't be outlined currently. This can be optimized in the future update by traversing the element tree instead of using hit test methods.
 
